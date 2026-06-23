@@ -1,0 +1,13 @@
+﻿Analyzing Tandem...                                             
+
+warning - Unused import: '../../core/router/app_router.dart' - lib\features\auth\login_screen.dart:6:8 - unused_import
+warning - Unused import: '../../core/router/app_router.dart' - lib\features\auth\onboarding_screen.dart:8:8 - unused_import
+warning - Unused import: '../../core/router/app_router.dart' - lib\features\auth\signup_screen.dart:10:8 - unused_import
+warning - Unused import: '../../core/router/app_router.dart' - lib\features\auth\splash_screen.dart:8:8 - unused_import
+warning - Unused import: 'dart:typed_data' - lib\features\duo\duo_screen.dart:2:8 - unused_import
+warning - Unused import: '../../core/router/app_router.dart' - lib\features\duo\duo_screen.dart:17:8 - unused_import
+  error - The method 'shareXFiles' isn't defined for the type 'SharePlus' - lib\features\duo\duo_screen.dart:50:23 - undefined_method
+  error - Instance member 'share' can't be accessed using static access - lib\features\duo\invite_screen.dart:28:15 - static_access_to_instance_member
+  error - The argument type 'String' can't be assigned to the parameter type 'ShareParams'.  - lib\features\duo\invite_screen.dart:29:7 - argument_type_not_assignable
+  error - The method 'toARGB32' isn't defined for the type 'Color' - lib\features\profile\avatar_builder.dart:59:41 - undefined_method
+

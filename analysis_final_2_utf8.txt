@@ -1,0 +1,9 @@
+﻿Analyzing Tandem...                                             
+
+warning - Unused import: 'dart:typed_data' - lib\features\duo\duo_screen.dart:2:8 - unused_import
+   info - 'Share' is deprecated and shouldn't be used. Use SharePlus instead - lib\features\duo\duo_screen.dart:49:13 - deprecated_member_use
+   info - 'shareXFiles' is deprecated and shouldn't be used. Use SharePlus.instance.share() instead - lib\features\duo\duo_screen.dart:49:19 - deprecated_member_use
+   info - 'Share' is deprecated and shouldn't be used. Use SharePlus instead - lib\features\duo\invite_screen.dart:28:5 - deprecated_member_use
+   info - 'share' is deprecated and shouldn't be used. Use SharePlus.instance.share() instead - lib\features\duo\invite_screen.dart:28:11 - deprecated_member_use
+   info - 'value' is deprecated and shouldn't be used. Use component accessors like .r or .g - lib\features\profile\avatar_builder.dart:59:41 - deprecated_member_use
+

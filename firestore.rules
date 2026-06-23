@@ -1,0 +1,53 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    
+    // User profile: Anyone signed in can read (for querying by invite code)
+    match /users/{userId} {
+      allow read: if request.auth != null;
+      allow create: if request.auth != null && request.auth.uid == userId;
+      allow update: if request.auth != null && (request.auth.uid == userId || get(/databases/$(database)/documents/users/$(userId)).data.duoPartnerId == request.auth.uid);
+      
+      // Helper function to check if the requestor is the owner or the owner's partner
+      function isOwnerOrPartner(userId) {
+        return request.auth.uid == userId || get(/databases/$(database)/documents/users/$(userId)).data.duoPartnerId == request.auth.uid;
+      }
+
+      // Goals sub-collection
+      match /goals/{goalId} {
+        allow read, write: if request.auth != null && isOwnerOrPartner(userId);
+        
+        // Tasks sub-collection
+        match /tasks/{taskId} {
+          allow read, write: if request.auth != null && isOwnerOrPartner(userId);
+        }
+      }
+
+      // Workout plans sub-collection
+      match /workoutPlans/{planId} {
+        allow read, write: if request.auth != null && isOwnerOrPartner(userId);
+      }
+
+      // Workout sessions sub-collection
+      match /workoutSessions/{sessionId} {
+        allow read, write: if request.auth != null && isOwnerOrPartner(userId);
+      }
+
+      // Daily scores / Stats sub-collection
+      match /dailyScores/{scoreId} {
+        allow read, write: if request.auth != null && isOwnerOrPartner(userId);
+      }
+    }
+
+    // Shared Duo relationships
+    match /duos/{duoId} {
+      allow read: if request.auth != null && (
+        resource.data.userAId == request.auth.uid || 
+        resource.data.userBId == request.auth.uid
+      );
+      allow create: if request.auth != null; // Verified via cloud function or transaction logic usually
+      allow update, delete: if false; // Managed by DuoService transactions
+    }
+  }
+}

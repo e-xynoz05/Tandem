@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "548760692644",
+    "project_id": "tandem-fc241",
+    "storage_bucket": "tandem-fc241.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:548760692644:android:16fa98f4dc3f8e77f60331",
+        "android_client_info": {
+          "package_name": "com.tandem.tandem"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC1DLwOlBp51dSArFwcHmMmChNmIr46D4M"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
